@@ -12,6 +12,8 @@ export class FormularioComponent implements OnInit {
   pessoa: Pessoa = new Pessoa();
 
   profissoes = ['Engenheiro', 'Professor', 'Químico', 'Zoólogo'];
+  cursos = ['Administração', 'Ciência da Computação', 'Medicina', 'Direito', 'Engenharia'];
+  professores = ['Rodrigo Bossini', 'Igor Moreira', 'Elcio Abrahão'];
 
 
   salvar (pessoaForm): void {
@@ -19,8 +21,11 @@ export class FormularioComponent implements OnInit {
     this.pessoa.fone = pessoaForm.value.fone;
     this.pessoa.email = pessoaForm.value.email;
     this.pessoa.profissao = pessoaForm.value.profissao;
-    console.log (this.pessoa);
-  }
+    this.pessoa.cursos = pessoaForm.value.cursos;
+    this.pessoa.professores = pessoaForm.value.professores;
+    console.log(this.pessoa);
+
+  }   
 
   constructor() {
 
@@ -30,4 +35,7 @@ export class FormularioComponent implements OnInit {
 
   }
 
+  mensagem(){
+    return console.log("Adicionado com sucesso!");
+  }
 }

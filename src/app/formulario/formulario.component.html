@@ -2,42 +2,65 @@
   {{pessoa | json}}
   <form #pessoaForm="ngForm" (ngSubmit)="salvar(pessoaForm)">
 
-    <div class="row">
-      <div class="form-group col-12">
-        <label for="nomeInput">Nome</label>
-        <input id="nomeInput" type="text" placeholder="Nome" class="form-control p-4" name="nome" [(ngModel)]="pessoa.nome">
+    <div class="PromocaoCaixa" style=background-color:rgb(206,204,101);>
+
+      <div class="PromocaoCaixa">
+        <div class="PromocaoCaixa_wrapper"><a class="PromocaoComponent__title" href="https://github.com/Sharkgrr">
+            BOOTSMART! </a></div>
       </div>
+
+      <div class="row">
+        <div class="form-group col-12">
+          <label for="nomeInput">Nome</label>
+          <input id="nomeInput" type="text" placeholder="Nome" class="form-control p-4" name="nome"
+            [(ngModel)]="pessoa.nome">
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="form-group col-md-4">
+          <label for="foneInput">Fone</label>
+          <input id="foneInput" type="text" placeholder="Fone" class="form-control p-4" name="fone"
+            [(ngModel)]="pessoa.fone">
+        </div>
+
+        <!--.form-group.col-md-4>(label[for=emailInput]{Email}+input#emailInput[type=text placeholder="Email"].form-control.p-4)-->
+        <div class="form-group col-md-4">
+          <label for="emailInput">Email</label>
+          <input type="text" id="emailInput" placeholder="Email" class="form-control p-4" [(ngModel)]="pessoa.email"
+            name="email">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="profissaoInput">Profissão</label>
+          <select id="profissaoInput" class="form-control" [(ngModel)]="pessoa.profissao" name="profissao">
+            <option value="">Selecione</option>
+            <option *ngFor="let p of profissoes">{{p}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="cursosInput">Cursos</label>
+          <select id="cursosInput" class="form-control" [(ngModel)]="pessoa.cursos" name="cursos">
+            <option value="">Selecione</option>
+            <option *ngFor="let h of cursos">{{h}}</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="professoresInput">Professor</label>
+          <select id="professoresInput" class="form-control" [(ngModel)]="pessoa.professores" name="professores">
+            <option value="">Selecione</option>
+            <option *ngFor="let h of professores">{{h}}</option>
+          </select>
+
+        </div>
+
+      </div>
+      <!--button[type=submit].btn.btn-primary.btn-block{Enviar}-->
+      <button type="button" (click)="salvar(pessoaForm)" class="btn btn-primary btn-block">Adicionar</button>
     </div>
 
-    <div class="row">
-
-      <div class="form-group col-md-4">
-        <label for="foneInput">Fone</label>
-        <input id="foneInput" type="text" placeholder="Fone" class="form-control p-4" name="fone" [(ngModel)]="pessoa.fone">
-      </div>
-
-      <!--.form-group.col-md-4>(label[for=emailInput]{Email}+input#emailInput[type=text placeholder="Email"].form-control.p-4)-->
-      <div class="form-group col-md-4">
-        <label for="emailInput">Email</label>
-        <input type="text" id="emailInput" placeholder="Email" class="form-control p-4" [(ngModel)]="pessoa.email" name="email">
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="profissaoInput">Profissão</label>
-        <select id="profissaoInput" class="form-control" [(ngModel)]="pessoa.profissao" name="profissao">
-          <option value="">Selecione</option>
-          <option *ngFor="let p of profissoes">{{p}}</option>
-        </select>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <!--button[type=submit].btn.btn-primary.btn-block{Enviar}-->
-        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-      </div>
-    </div>
-
+  
   </form>
 </div>
